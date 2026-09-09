@@ -15,22 +15,23 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#071a31;fon
  overflow:hidden;background:#f4f8fb;color:#132d53
 }
 #screen{width:100%;height:100%;display:flex;flex-direction:column;background:linear-gradient(180deg,#f8fbfd 0%,#edf5fa 100%)}
+
 .header{height:12%;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;border-bottom:1px solid #dbe6ee}
 .logo-img{height:92%;max-width:58%;object-fit:contain;object-position:left center}
 .clock{text-align:right;border-left:1px solid #d7e0e7;padding-left:16px}
-#date{font-size:12px;color:#536b85;margin-bottom:2px}
+#date{font-size:12px;color:#536b85;margin-bottom:2px;text-transform:capitalize}
 #time{font-size:34px;font-weight:800;color:#132d53}
 .tag{font-size:11px;color:#132d53;margin-top:2px}
 
 .hero{height:34%;position:relative;overflow:hidden;background:#d5e5f0}
-.hero-slides{position:absolute;inset:0}
-.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease}
+.hero-slides{position:absolute;left:0;top:0;width:100%;height:100%}
+.hero-slide{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease}
 .hero-slide.active{opacity:1}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,25,48,.88) 0%,rgba(9,35,62,.66) 48%,rgba(9,35,62,.16) 100%)}
-.cross{position:absolute;right:8%;top:15%;font-size:130px;line-height:1;color:rgba(19,45,83,.06);font-weight:bold}
+.hero-shade{position:absolute;left:0;right:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(5,25,48,.88) 0%,rgba(9,35,62,.62) 48%,rgba(9,35,62,.12) 100%)}
+.cross{position:absolute;right:8%;top:15%;font-size:130px;line-height:1;color:rgba(255,255,255,.10);font-weight:bold}
 .hero-copy{position:absolute;left:6%;top:18%;width:64%}
 .hero h1{font-family:Georgia,"Times New Roman",serif;font-size:36px;line-height:1.05;margin:0;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35)}
-.red-line{width:76px;height:5px;background:#9d1f2d;border-radius:4px;margin:15px 0}
+.red-line{width:76px;height:5px;background:#a72331;border-radius:4px;margin:15px 0}
 .hero p{font-size:17px;line-height:1.35;margin:0;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.35)}
 .hero-note{position:absolute;right:5%;bottom:8%;font-family:Georgia,"Times New Roman",serif;font-style:italic;color:#fff;font-size:16px;text-shadow:0 2px 6px rgba(0,0,0,.45)}
 
@@ -50,7 +51,7 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#071a31;fon
 
 .info-row{height:13%;margin:10px 18px 0;display:flex}
 .info-card{width:49%;background:#e5f3fb;border-radius:17px;padding:12px 15px;display:flex;align-items:center}
-.info-card+ .info-card{margin-left:2%;background:#e6f6ef}
+.info-card+.info-card{margin-left:2%;background:#e6f6ef}
 .info-icon{width:43px;height:43px;border-radius:50%;background:#132d53;color:#fff;display:flex;align-items:center;justify-content:center;font-size:21px;margin-right:10px}
 .whatsapp{background:#25a55f}
 .info-title{font-size:12px;font-weight:800}
@@ -59,107 +60,132 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#071a31;fon
 .qr{margin-left:auto;width:61px;height:61px;background:#fff;border:2px dashed #132d53;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:9px;font-weight:bold;padding:5px}
 
 .footer{height:6%;margin-top:auto;background:linear-gradient(90deg,#102a4b,#163b64);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-family:Georgia,"Times New Roman",serif;font-size:14px;letter-spacing:.5px}
-@media(max-width:700px){
- .hero h1{font-size:30px}.promo-big{font-size:23px}.section-title{font-size:18px}
-}
 </style>
 </head>
+
 <body>
 <div id="rotate-wrap">
 <div id="screen">
 
- <header class="header">
-   <img class="logo-img" src="hospital-quito-norte-logo.svg" alt="Hospital Quito Norte">
-   <div class="clock">
-     <div id="date">--</div>
-     <div id="time">--:--</div>
-     <div class="tag">Tu salud, nuestra prioridad</div>
-   </div>
- </header>
+<header class="header">
+  <img class="logo-img" src="hospital-quito-norte-logo.svg" alt="Hospital Quito Norte">
+  <div class="clock">
+    <div id="date">Cargando fecha...</div>
+    <div id="time">--:--:--</div>
+    <div class="tag">Tu salud, nuestra prioridad</div>
+  </div>
+</header>
 
- <section class="hero">
-   <div class="hero-slides">
-     <img class="hero-slide active" src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1400&q=80" alt="Instalaciones hospitalarias">
-     <img class="hero-slide" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=80" alt="Atención médica">
-     <img class="hero-slide" src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1400&q=80" alt="Hospital">
-   </div>
-   <div class="hero-shade"></div>
-   <div class="cross">+</div>
-   <div class="hero-copy">
-     <h1>Cuidamos de ti<br>y de tu familia</h1>
-     <div class="red-line"></div>
-     <p>Atención médica cercana,<br>profesional y oportuna.</p>
-   </div>
-   <div class="hero-note">Salud en cada etapa de tu vida</div>
- </section>
+<section class="hero">
+  <div class="hero-slides">
+    <img class="hero-slide active" src="01-1.webp" alt="Hospital Quito Norte">
+    <img class="hero-slide" src="medicina-mano-medica.jpg" alt="Atención médica">
+    <img class="hero-slide" src="types-of-hospitals.jpg" alt="Instalaciones hospitalarias">
+  </div>
+  <div class="hero-shade"></div>
+  <div class="cross">+</div>
+  <div class="hero-copy">
+    <h1>Cuidamos de ti<br>y de tu familia</h1>
+    <div class="red-line"></div>
+    <p>Atención médica cercana,<br>profesional y oportuna.</p>
+  </div>
+  <div class="hero-note">Salud en cada etapa de tu vida</div>
+</section>
 
- <section class="promo">
-   <div class="promo-icon">★</div>
-   <div>
-     <div class="promo-small">CAMPAÑA DEL MES</div>
-     <div class="promo-big">Chequeo preventivo</div>
-     <div class="promo-text">Consulta en recepción por nuestros paquetes y disponibilidad.</div>
-   </div>
- </section>
+<section class="promo">
+  <div class="promo-icon">★</div>
+  <div>
+    <div class="promo-small">CAMPAÑA DEL MES</div>
+    <div class="promo-big">Chequeo preventivo</div>
+    <div class="promo-text">Consulta en recepción por nuestros paquetes y disponibilidad.</div>
+  </div>
+</section>
 
- <section class="services">
-   <div class="section-head">
-     <div class="section-title">NUESTROS SERVICIOS</div>
-     <div class="section-sub">Comprometidos con tu bienestar</div>
-   </div>
-   <div class="service-list">
-     <div class="service"><div class="icon">+</div>Medicina General</div>
-     <div class="service"><div class="icon">◇</div>Odontología</div>
-     <div class="service"><div class="icon">⌁</div>Laboratorio</div>
-     <div class="service"><div class="icon">☺</div>Pediatría</div>
-     <div class="service"><div class="icon">●</div>Especialidades</div>
-     <div class="service"><div class="icon">✓</div>Chequeos Preventivos</div>
-   </div>
- </section>
+<section class="services">
+  <div class="section-head">
+    <div class="section-title">NUESTROS SERVICIOS</div>
+    <div class="section-sub">Comprometidos con tu bienestar</div>
+  </div>
+  <div class="service-list">
+    <div class="service"><div class="icon">+</div>Medicina General</div>
+    <div class="service"><div class="icon">◇</div>Odontología</div>
+    <div class="service"><div class="icon">⌁</div>Laboratorio</div>
+    <div class="service"><div class="icon">☺</div>Pediatría</div>
+    <div class="service"><div class="icon">●</div>Especialidades</div>
+    <div class="service"><div class="icon">✓</div>Chequeos Preventivos</div>
+  </div>
+</section>
 
- <section class="info-row">
-   <div class="info-card">
-     <div class="info-icon">◷</div>
-     <div>
-       <div class="info-title">HORARIO DE ATENCIÓN</div>
-       <div class="info-small">Lunes a viernes</div>
-       <div class="info-main">08:00 - 18:00</div>
-     </div>
-   </div>
-   <div class="info-card">
-     <div class="info-icon whatsapp">☎</div>
-     <div>
-       <div class="info-title">AGENDA TU CITA</div>
-       <div class="info-small">Escríbenos por WhatsApp</div>
-       <div class="info-main">098 123 4567</div>
-     </div>
-     <div class="qr">QR PARA<br>AGENDAR</div>
-   </div>
- </section>
+<section class="info-row">
+  <div class="info-card">
+    <div class="info-icon">◷</div>
+    <div>
+      <div class="info-title">HORARIO DE ATENCIÓN</div>
+      <div class="info-small">Lunes a viernes</div>
+      <div class="info-main">08:00 - 18:00</div>
+    </div>
+  </div>
 
- <footer class="footer">HOSPITAL QUITO NORTE &nbsp; · &nbsp; Tu salud, nuestra prioridad</footer>
+  <div class="info-card">
+    <div class="info-icon whatsapp">☎</div>
+    <div>
+      <div class="info-title">AGENDA TU CITA</div>
+      <div class="info-small">Escríbenos por WhatsApp</div>
+      <div class="info-main">098 123 4567</div>
+    </div>
+    <div class="qr">QR PARA<br>AGENDAR</div>
+  </div>
+</section>
+
+<footer class="footer">
+  HOSPITAL QUITO NORTE &nbsp; · &nbsp; Tu salud, nuestra prioridad
+</footer>
 
 </div>
 </div>
 
 <script>
-function updateClock(){
- var n=new Date();
- var h=('0'+n.getHours()).slice(-2);
- var m=('0'+n.getMinutes()).slice(-2);
- document.getElementById('time').innerHTML=h+':'+m;
- var d=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
- var mo=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
- document.getElementById('date').innerHTML=d[n.getDay()]+', '+n.getDate()+' de '+mo[n.getMonth()];
+/*
+ Hora de Ecuador continental (America/Guayaquil = UTC-5).
+ Se calcula desde UTC para no depender de la zona horaria configurada
+ incorrectamente en el TV Box.
+*/
+function ecuadorNow(){
+  var local = new Date();
+  return new Date(local.getTime() + (local.getTimezoneOffset() * 60000) - (5 * 60 * 60000));
 }
-updateClock();setInterval(updateClock,30000);
 
-var heroSlides=document.getElementsByClassName('hero-slide');
-var heroCurrent=0;
+function updateClock(){
+  var n = ecuadorNow();
+
+  var hh = ('0' + n.getHours()).slice(-2);
+  var mm = ('0' + n.getMinutes()).slice(-2);
+  var ss = ('0' + n.getSeconds()).slice(-2);
+
+  document.getElementById('time').innerHTML = hh + ':' + mm + ':' + ss;
+
+  var dias = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  var meses = ['enero','febrero','marzo','abril','mayo','junio','julio',
+               'agosto','septiembre','octubre','noviembre','diciembre'];
+
+  document.getElementById('date').innerHTML =
+    dias[n.getDay()] + ', ' +
+    n.getDate() + ' de ' +
+    meses[n.getMonth()] + ' de ' +
+    n.getFullYear();
+}
+
+updateClock();
+setInterval(updateClock,1000);
+
+/* Carrusel: cambia cada 3 segundos */
+var heroSlides = document.getElementsByClassName('hero-slide');
+var heroCurrent = 0;
+
 setInterval(function(){
- heroSlides[heroCurrent].className='hero-slide';
- heroCurrent=(heroCurrent+1)%heroSlides.length;
- heroSlides[heroCurrent].className='hero-slide active';
+  heroSlides[heroCurrent].className = 'hero-slide';
+  heroCurrent = (heroCurrent + 1) % heroSlides.length;
+  heroSlides[heroCurrent].className = 'hero-slide active';
 },3000);
 </script>
 </body>
