@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#073766">
+  <title>Hospital Quito Norte</title>
+  <style>
+    :root{--blue:#073766;--blue2:#0b4c7d;--red:#a71930;--ink:#0b3158;--paper:#f7fafc}
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#071f39;font-family:Arial,Helvetica,sans-serif;color:var(--ink);overflow:hidden}
+    body{position:relative}.rotation-stage{position:absolute;left:50%;top:50%;width:900px;height:1600px;transform-origin:center center}.screen{width:900px;min-height:1600px;background:#f7fafc;overflow:hidden;box-shadow:0 0 40px #0007}
+    .header{height:190px;display:flex;align-items:center;background:#fff;position:relative;padding:0 44px 0 116px}
+    .header:before{content:"";position:absolute;inset:0 auto 0 0;width:120px;background:linear-gradient(62deg,#0a3966 0 48%,#174f7a 49% 77%,transparent 78%);clip-path:polygon(0 0,55% 0,100% 100%,0 100%)}
+    .brand-logo{width:420px;height:145px;display:block;object-fit:contain;object-position:center;flex:none}
+    .clockbox{margin-left:auto;border-left:1px solid #bcc8d2;padding-left:32px;text-align:center;min-width:320px}
+    #date{font-size:19px;margin-bottom:2px}.time{font-size:82px;line-height:.95;font-weight:800;letter-spacing:1px}.motto{font-size:18px;font-weight:700;margin-top:8px}
+    .hero{height:430px;background:url('hospital-reference.png') no-repeat center -190px/900px 1600px;position:relative}
+    .campaign{margin:10px 25px 14px;min-height:192px;border-radius:18px;background:linear-gradient(110deg,#9c0f27,#b11d35);color:#fff;display:flex;align-items:center;padding:24px 30px;box-shadow:0 7px 16px #780b2229;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
+    .campaign:hover{transform:translateY(-2px);filter:brightness(1.05)}.megaphone{width:108px;height:108px;border:3px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:55px;margin-right:30px}.campaign small{font-size:22px;font-weight:700;letter-spacing:1px}.campaign h2{font-size:47px;line-height:1;margin:10px 0}.campaign p{font-size:20px;margin:0}.campaign:after{content:"♡";position:absolute;right:35px;font-size:145px;color:#fff1;line-height:1}
+    .services{margin:0 25px 14px;padding:20px 24px 24px;border-radius:18px;background:linear-gradient(135deg,#fff,#eef4f8)}
+    .services-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}.services h2{font-size:34px;margin:0;font-weight:800}.services h2:after{content:"";display:block;width:58px;height:5px;background:var(--red);border-radius:5px;margin-top:10px}.services-head span{font-size:17px;margin-bottom:10px}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.service{border:0;background:#fff;border-radius:18px;min-height:112px;padding:12px 14px;display:flex;align-items:center;text-align:left;color:var(--ink);font:700 18px/1.12 Arial;box-shadow:0 7px 16px #173c6512;cursor:pointer;transition:.2s}.service:hover,.service:focus{transform:translateY(-4px);box-shadow:0 10px 22px #173c6524;outline:2px solid #96cbea}.ico{flex:none;width:72px;height:72px;border-radius:50%;background:linear-gradient(145deg,#d5eefb,#8dc9e9);display:grid;place-items:center;font-size:37px;margin-right:14px;color:#073d6e}
+    .contact{margin:0 25px 14px;border-radius:18px;background:linear-gradient(90deg,#e7f5fd,#e2fbf6);display:grid;grid-template-columns:1fr 1fr 145px;min-height:208px;padding:24px 26px;gap:18px}.contact-title{font-size:19px;font-weight:800}.line{display:block;width:55px;height:5px;background:var(--red);border-radius:4px;margin:10px 0 28px}.contact p{font-size:22px;margin:0 0 3px}.contact strong{font-size:36px}.whatsapp{color:inherit;text-decoration:none}.whatsapp .contact-title:before{content:"☎";display:inline-grid;place-items:center;width:55px;height:55px;border-radius:50%;background:#1fc176;color:#fff;font-size:30px;margin-right:12px}.hours .contact-title:before{content:"◷";display:inline-grid;place-items:center;width:55px;height:55px;border-radius:50%;background:#14598d;color:#fff;font-size:36px;margin-right:12px}.qr{background:#fff;border-radius:12px;padding:10px;text-align:center;font-size:14px;font-weight:bold}.qrbox{width:105px;height:105px;margin:auto;background:repeating-conic-gradient(#111 0 25%,#fff 0 50%) 0/14px 14px;border:8px solid #fff;box-shadow:0 0 0 4px #111 inset}.qr p{font-size:14px;margin-top:8px}
+    footer{height:160px;background:linear-gradient(#073766ed,#073766f5),url('hospital-reference.png') center bottom/900px 1600px;color:#fff;text-align:center;padding-top:35px;font-family:Georgia,serif}footer div{font-size:27px}footer p{font-size:20px;margin:10px}
+    dialog{border:0;border-radius:18px;padding:0;max-width:430px;box-shadow:0 24px 70px #0008;color:var(--ink)}dialog::backdrop{background:#041b35aa}.modal{padding:30px}.modal h3{font-size:27px;margin:0 0 10px}.modal p{font-size:18px;line-height:1.5}.close{border:0;border-radius:10px;background:var(--blue);color:#fff;padding:12px 22px;font-size:16px;cursor:pointer}
+    @media(max-width:700px){.screen{min-height:1600px}}
+  </style>
+</head>
+<body>
+<div class="rotation-stage" id="rotationStage"><main class="screen">
+  <header class="header"><img class="brand-logo" src="hospital-quito-norte-logo.svg" alt="Hospital Quito Norte"><div class="clockbox"><div id="date"></div><div class="time" id="time">18:31</div><div class="motto">Tu salud, nuestra prioridad</div></div></header>
+  <section class="hero" aria-label="Cuidamos de ti y de tu familia"></section>
+  <section class="campaign" tabindex="0" onclick="showInfo('Campaña del mes','Consulta en recepción por nuestros paquetes de chequeo preventivo y disponibilidad.')"><div class="megaphone">◁</div><div><small>CAMPAÑA DEL MES</small><h2>Chequeo preventivo</h2><p>Consulta en recepción por nuestros paquetes y disponibilidad.</p></div></section>
+  <section class="services"><div class="services-head"><h2>NUESTROS SERVICIOS</h2><span>Comprometidos con tu bienestar</span></div><div class="service-grid">
+    <button class="service" onclick="showInfo('Cirugía estética','Atención profesional y valoración personalizada.')"><span class="ico">✧</span>Cirugía<br>estética</button>
+    <button class="service" onclick="showInfo('Servicio de quirófano','Espacios equipados y atención especializada.')"><span class="ico">✚</span>Servicio de<br>quirófano</button>
+    <button class="service" onclick="showInfo('Emergencias','Atención médica oportuna cuando más la necesitas.')"><span class="ico">⚕</span>Emergencias</button>
+    <button class="service" onclick="showInfo('Medicina general','Consulta integral para toda la familia.')"><span class="ico">♧</span>Medicina<br>general</button>
+    <button class="service" onclick="showInfo('Ginecología','Atención integral para la salud femenina.')"><span class="ico">♀</span>Ginecología</button>
+    <button class="service" onclick="showInfo('Especialidades','Consulta nuestras especialidades médicas disponibles.')"><span class="ico">♙</span>Especialidades</button>
+  </div></section>
+  <section class="contact"><div class="hours"><div class="contact-title">HORARIO DE ATENCIÓN</div><span class="line"></span><p>Lunes a viernes</p><strong>08:00 - 18:00</strong></div><a class="whatsapp" href="https://wa.me/593981234567" target="_blank"><div class="contact-title">AGENDA TU CITA</div><span class="line"></span><p>Escríbenos por WhatsApp</p><strong>098 123 4567</strong></a><div class="qr"><div class="qrbox"></div><p>Escanea para<br>agendar tu cita</p></div></section>
+  <footer><div>HOSPITAL QUITO NORTE</div><p>Tu salud, nuestra prioridad</p></footer>
+</main></div>
+<dialog id="info"><div class="modal"><h3 id="modalTitle"></h3><p id="modalText"></p><button class="close" onclick="info.close()">Cerrar</button></div></dialog>
+<script>
+  const months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const days=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  function updateClock(){const d=new Date();document.getElementById('date').textContent=`${days[d.getDay()]}, ${d.getDate()} de ${months[d.getMonth()]} de ${d.getFullYear()}`;document.getElementById('time').textContent=d.toLocaleTimeString('es-EC',{hour:'2-digit',minute:'2-digit',hour12:false})}
+  function showInfo(title,text){modalTitle.textContent=title;modalText.textContent=text;info.showModal()}
+  function fitRotatedPage(){
+    const scale=Math.min(window.innerWidth/1600,window.innerHeight/900);
+    rotationStage.style.transform=`translate(-50%,-50%) rotate(-90deg) scale(${scale})`;
+  }
+  updateClock();fitRotatedPage();setInterval(updateClock,1000);window.addEventListener('resize',fitRotatedPage);
+</script>
+</body>
+</html>
